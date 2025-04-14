@@ -20,20 +20,18 @@ public class Bullet : MonoBehaviour
         transform.position += (Vector3)(movement.normalized * speed);
     }
 
-    /*
     private void OnCollisionEnter(Collision collision)
     {
-            if (collision.gameObject.tag == "Wall")
-            {
-                Destroy(this.gameObject);
-            }
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
 
-            if (collision.gameObject.tag == "Enemy")
-            {
-                print("Enemy " + collision.gameObject.name);
-                Destroy(this.gameObject);
-                collision.gameObject.GetComponent<EnemyController>().TakeDamage(1);
-            }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            print("Enemy " + collision.gameObject.name);
+            Destroy(this.gameObject);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
+        }
     }
-        */
 }
