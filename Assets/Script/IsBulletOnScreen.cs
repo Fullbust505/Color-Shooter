@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsOnScreen : MonoBehaviour
+public class IsBulletOnScreen : MonoBehaviour
 {
     void Update()
     {

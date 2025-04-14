@@ -27,13 +27,14 @@ public class Player : MonoBehaviour
         // Mouvement du joueur
         Vector2 movement = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.W)) movement += Vector2.up;
-        if (Input.GetKey(KeyCode.S)) movement += Vector2.down;
-        if (Input.GetKey(KeyCode.A)) movement += Vector2.left;
-        if (Input.GetKey(KeyCode.D)) movement += Vector2.right;
+        if (Input.GetKey(KeyCode.W) && Camera.main.WorldToViewportPoint(transform.position).y <= 1) movement += Vector2.up;
+        if (Input.GetKey(KeyCode.S) && Camera.main.WorldToViewportPoint(transform.position).y >= 0) movement += Vector2.down;
+        if (Input.GetKey(KeyCode.A) && Camera.main.WorldToViewportPoint(transform.position).x >= 0) movement += Vector2.left;
+        if (Input.GetKey(KeyCode.D) && Camera.main.WorldToViewportPoint(transform.position).x <= 1) movement += Vector2.right;
 
         // Appliquer le mouvement
         transform.position += (Vector3)(movement.normalized * speed);
 
     }
+
 }
