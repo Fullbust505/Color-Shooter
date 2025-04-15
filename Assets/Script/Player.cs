@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     public void TakeDamage()
     {
         hpAmount -= 1;
-       
+
         if (hpAmount <= 0)
         {
             this.PlayerDead();
@@ -65,6 +65,6 @@ public class Player : MonoBehaviour
             Destroy(p.gameObject);
         }
 
-        Debug.Log(allplayers.Length + " tous les joueurs ont été détruit.");
+        Debug.Log(allplayers.Length + " tous les joueurs ont Ã©tÃ© dÃ©truit.");
     }
 }
