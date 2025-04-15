@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
-public class Test : MonoBehaviour
+public class Rusheur : Enemy
 {
     private NavMeshAgent agent;
-    public GameObject Player1;
-    public GameObject Player2;
     private Vector3 moveDirection;
     private float speed = 5f;
 
@@ -18,6 +16,7 @@ public class Test : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         SetTargetPosition();
+        hpAmount = 1;
  
     }
 

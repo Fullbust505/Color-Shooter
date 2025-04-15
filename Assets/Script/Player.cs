@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     private float speed = 0.02f;
     public GameObject bullet;
+    private int hpAmount = 1;
+
 
 
     // Start is called before the first frame update
@@ -37,4 +39,21 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            this.TakeDamage();
+        }
+    }
+
+    private void TakeDamage()
+    {
+        hpAmount -= 1;
+       
+        if (hpAmount <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
