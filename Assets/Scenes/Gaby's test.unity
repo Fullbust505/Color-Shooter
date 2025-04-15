@@ -215,10 +215,11 @@ GameObject:
   - component: {fileID: 32313082}
   - component: {fileID: 32313081}
   - component: {fileID: 32313085}
+  - component: {fileID: 32313086}
   - component: {fileID: 32313084}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: p1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af769754628eb04ab647a6d43edc31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 2975418690929771715, guid: 34a183d8229923f4cbb029a2b2c17f39, type: 3}
 --- !u!212 &32313082
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -359,12 +359,25 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &32313086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32313080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeaf5c6ffefac9641807617ff25fbf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2975418690929771715, guid: 34a183d8229923f4cbb029a2b2c17f39, type: 3}
 --- !u!1 &76690888
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,9 +768,9 @@ GameObject:
   m_Component:
   - component: {fileID: 647522724}
   - component: {fileID: 647522723}
-  - component: {fileID: 647522722}
   - component: {fileID: 647522721}
   - component: {fileID: 647522725}
+  - component: {fileID: 647522726}
   m_Layer: 0
   m_Name: Rusheur
   m_TagString: Enemy
@@ -787,20 +800,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &647522722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647522720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 935c7c84501e75f42b07d78fe12e710a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player1: {fileID: 32313080}
-  Player2: {fileID: 716343529}
 --- !u!212 &647522723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -903,6 +902,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &647522726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647522720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935c7c84501e75f42b07d78fe12e710a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 32313080}
+  Player2: {fileID: 716343529}
 --- !u!1 &716343529
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,9 +929,10 @@ GameObject:
   - component: {fileID: 716343530}
   - component: {fileID: 716343534}
   - component: {fileID: 716343533}
+  - component: {fileID: 716343535}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: p2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,7 +949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af769754628eb04ab647a6d43edc31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 2975418690929771715, guid: 34a183d8229923f4cbb029a2b2c17f39, type: 3}
 --- !u!212 &716343531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1065,6 +1078,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &716343535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716343529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeaf5c6ffefac9641807617ff25fbf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2975418690929771715, guid: 34a183d8229923f4cbb029a2b2c17f39, type: 3}
 --- !u!1 &984390640
 GameObject:
   m_ObjectHideFlags: 0
