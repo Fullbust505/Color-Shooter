@@ -42,14 +42,14 @@ public class Shooter : Enemy
 
     void SetTargetPosition()
     {
-        if (Mathf.Sqrt(Mathf.Pow(this.transform.position.x - Player1.transform.position.x, 2) + Mathf.Pow(this.transform.position.y - Player1.transform.position.y, 2)) < Mathf.Sqrt(Mathf.Pow(this.transform.position.x - Player2.transform.position.x, 2) + Mathf.Pow(this.transform.position.y - Player2.transform.position.y, 2)))
+        if (Mathf.Sqrt(Mathf.Pow(this.transform.position.x - Main.Joueur1.transform.position.x, 2) + Mathf.Pow(this.transform.position.y - Main.Joueur1.transform.position.y, 2)) < Mathf.Sqrt(Mathf.Pow(this.transform.position.x - Main.Joueur2.transform.position.x, 2) + Mathf.Pow(this.transform.position.y - Main.Joueur2.transform.position.y, 2)))
         {
-            Vector3 dir = (Player1.transform.position - transform.position).normalized;
+            Vector3 dir = (Main.Joueur1.transform.position - transform.position).normalized;
             moveDirection = dir;
         }
         else
         {
-            Vector3 dir = (Player2.transform.position - transform.position).normalized;
+            Vector3 dir = (Main.Joueur2.transform.position - transform.position).normalized;
             moveDirection = dir;
         }
     }
