@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private int hpAmount = 4;
-    public GameObject player;
-    public GameObject player2;
+    protected int hpAmount;
+    public GameObject Player1;
+    public GameObject Player2;
 
     public void Start()
     {

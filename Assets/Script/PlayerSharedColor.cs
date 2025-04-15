@@ -9,6 +9,7 @@ public class PlayerSharedColor : MonoBehaviour
 {
     public bool isPlayerOne = true; // Coche ça pour le joueur 1 dans l’inspecteur
     public GameObject bullet;
+    private static int hpAmount = 1;
 
     private Renderer rend;
     private float speed = 0.02f;
@@ -37,7 +38,6 @@ public class PlayerSharedColor : MonoBehaviour
         }
         else
         {
-            Debug.Log("B est reset");
             bHoldTimer = 0f;
             hasSwitched = false;
         }
@@ -80,5 +80,33 @@ public class PlayerSharedColor : MonoBehaviour
         {
             rend.material.color = GameState.GetOppositeColor();
         }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Touché fdp");
+        if (other.gameObject.tag == "Enemy")
+        {
+            this.TakeDamage();
+        }
+    }
+    public void TakeDamage()
+    {
+        hpAmount -= 1;
+
+        if (hpAmount <= 0)
+        {
+            this.PlayerDead();
+        }
+    }
+
+    void PlayerDead()
+    {
+        PlayerSharedColor[] allplayers = FindObjectsOfType<PlayerSharedColor>();
+        foreach (PlayerSharedColor p in allplayers)
+        {
+            Destroy(p.gameObject);
+        }
+
+        Debug.Log(allplayers.Length + " tous les joueurs ont été détruit.");
     }
 }

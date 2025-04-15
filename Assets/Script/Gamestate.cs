@@ -4,6 +4,7 @@ using UnityEngine;
 public static class GameState
 {
     public static Color currentColor = Color.red;
+    public static bool hasSwitched = false;
 
     public static Color GetOppositeColor()
     {
@@ -13,5 +14,11 @@ public static class GameState
     public static void ToggleColor()
     {
         currentColor = GetOppositeColor();
+        hasSwitched = true;
+    }
+
+    public static void ResetSwitch()
+    {
+        hasSwitched = false;
     }
 }

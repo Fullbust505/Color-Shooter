@@ -20,18 +20,12 @@ public class Bullet : MonoBehaviour
         transform.position += (Vector3)(movement.normalized * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
-        }
-
-        if (collision.gameObject.tag == "Enemy")
-        {
-            print("Enemy " + collision.gameObject.name);
-            Destroy(this.gameObject);
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
+            other.GetComponent<Enemy>().TakeDamage(1);
         }
     }
 }

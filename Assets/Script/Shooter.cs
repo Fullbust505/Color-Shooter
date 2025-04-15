@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
-public class Rusheur : Enemy
+public class Shooter : Enemy
 {
     private NavMeshAgent agent;
     private Vector3 moveDirection;
-    private float speed = 5f;
+    public GameObject missile;
+    private float cooldown = 1f;
 
     void Start()
     {
@@ -16,12 +17,27 @@ public class Rusheur : Enemy
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         SetTargetPosition();
-        hpAmount = 1;
+        hpAmount = 2;
     }
 
     void Update()
     {
-        transform.position += moveDirection * speed * Time.deltaTime;
+        SetTargetPosition();
+        cooldown -= Time.deltaTime;
+
+        if (cooldown <= 0)
+        {
+
+            // Instanciation
+            GameObject missileClone = Instantiate(missile, this.transform.position, this.transform.rotation);
+
+            Missile missileScript = missileClone.GetComponent<Missile>();
+            if (missileScript != null)
+            {
+                missileScript.SetDirection(moveDirection); // ou public field
+            }
+            cooldown = 1f;
+        }
     }
 
     void SetTargetPosition()
