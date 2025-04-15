@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     private float speed = 0.02f;
     public GameObject bullet;
-    private int hpAmount = 1;
+    private static int hpAmount = 1;
 
 
 
@@ -47,13 +47,24 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TakeDamage()
+    public void TakeDamage()
     {
         hpAmount -= 1;
        
         if (hpAmount <= 0)
         {
-            Destroy(this.gameObject);
+            this.PlayerDead();
         }
+    }
+
+    void PlayerDead()
+    {
+        Player[] allplayers = FindObjectsOfType<Player>();
+        foreach (Player p in allplayers)
+        {
+            Destroy(p.gameObject);
+        }
+
+        Debug.Log(allplayers.Length + " tous les joueurs ont été détruit.");
     }
 }
